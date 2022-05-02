@@ -1,0 +1,27 @@
+@model IEnumerable<mtg_lib.Library.Models.Color>
+
+<h1>Overview</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CardColors)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Id</td>
+            <td>
+                <a  asp-controller="Overview" 
+                    asp-action="GetProductsByCategoryId" 
+                    asp-route-categoryId="@item.Id">
+                    Colors
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
